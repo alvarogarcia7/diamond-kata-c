@@ -44,8 +44,7 @@ char **diamond(char *chars){
 
     result = calloc(number_of_rows(chars) + ROW_TERMINATOR, sizeof(char *));
     if(strlen(chars) == 1) {
-        result[0] = calloc(number_of_columns(chars), sizeof(char));
-        result[0][0] = chars[0];
+        fill_pattern_A_(&result[0], chars[0], number_of_columns(chars));
         result[1] = NULL;
     } else if(strlen(chars) == 2){
         fill_pattern_A_(&result[0], chars[0], number_of_columns(chars));
