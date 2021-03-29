@@ -102,9 +102,9 @@ char **diamond(char *chars) {
             int shift = i;
             fill_pattern_B_B_shifted(&result[row], chars[char_index], number_of_columns(chars), shift);
         }
-        fill_pattern_A_(&result[8], chars[0], number_of_columns(chars));
+        fill_pattern_A_(&result[number_of_rows(chars) -1], chars[0], number_of_columns(chars));
 
-        result[9] = NULL;//"   A   "
+        result[number_of_rows(chars)] = NULL;
     }
     return result;
 }
