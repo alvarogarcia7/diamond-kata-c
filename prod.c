@@ -10,9 +10,11 @@ void fill_pattern_A_(char **result_ptr, char c, int columns) {
 
     char *result = *result_ptr;
 
-    result[0] = ' ';
-    result[1] = c;
-    result[2] = ' ';
+    for (int i = 0; i < columns; ++i) {
+        result[i] = ' ';
+    }
+
+    result[columns/2] = c;
 }
 
 void fill_pattern_B_B(char **result_ptr, char c, int columns) {
