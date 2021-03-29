@@ -3,11 +3,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-void fill_pattern_A_(char **result, char c) {
-    *result = calloc(10, sizeof(char));
-    (*result)[0] = ' ';
-    (*result)[1] = c;
-    (*result)[2] = ' ';
+void fill_pattern_A_(char **result_ptr, char c) {
+    *result_ptr = calloc(10, sizeof(char));
+
+    char *result = *result_ptr;
+
+    result[0] = ' ';
+    result[1] = c;
+    result[2] = ' ';
 }
 
 char **diamond(char *chars){
