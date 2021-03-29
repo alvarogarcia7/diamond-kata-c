@@ -69,7 +69,7 @@ char **diamond(char *chars) {
            int shift = strlen(chars) - 1 - i;
            fill_pattern_B_B_shifted(&result[row], chars[char_index], number_of_columns(chars), shift);
         }
-        fill_pattern_B_B(&result[number_of_columns(chars)/2], chars[strlen(chars)-1], number_of_columns(chars));
+        fill_pattern_B_B_shifted(&result[number_of_columns(chars)/2], chars[strlen(chars)-1], number_of_columns(chars), 0);
         for (int i = 1; i < strlen(chars) -1 ; ++i) {
             int row = i + strlen(chars) - 1 ;
             int char_index = strlen(chars) - 1 - i;
