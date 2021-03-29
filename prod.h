@@ -1,2 +1,2 @@
 
-char *diamond(char *chars);
+char **diamond(char *chars);
