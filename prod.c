@@ -5,7 +5,7 @@
 
 #define ROW_TERMINATOR 1
 
-void fill_pattern_A_(char **result_ptr, char c, int columns) {
+void fill_pattern_letter_in_the_middle(char **result_ptr, char c, int columns) {
     *result_ptr = calloc(columns, sizeof(char));
 
     char *result = *result_ptr;
@@ -59,10 +59,10 @@ char **diamond(char *chars) {
 
     result = calloc(number_of_rows(chars) + ROW_TERMINATOR, sizeof(char *));
     if (strlen(chars) == 1) {
-        fill_pattern_A_(&result[0], chars[0], number_of_columns(chars));
+        fill_pattern_letter_in_the_middle(&result[0], chars[0], number_of_columns(chars));
         result[1] = NULL;
     } else {
-        fill_pattern_A_(&result[0], chars[0], number_of_columns(chars));
+        fill_pattern_letter_in_the_middle(&result[0], chars[0], number_of_columns(chars));
         for (int i = 1; i < strlen(chars) - 1; ++i) {
            int row = i;
            int char_index = i;
@@ -76,7 +76,7 @@ char **diamond(char *chars) {
             int shift = i;
             fill_pattern_B_B_shifted(&result[row], chars[char_index], number_of_columns(chars), shift);
         }
-        fill_pattern_A_(&result[number_of_rows(chars) -1], chars[0], number_of_columns(chars));
+        fill_pattern_letter_in_the_middle(&result[number_of_rows(chars) - 1], chars[0], number_of_columns(chars));
 
         result[number_of_rows(chars)] = NULL;
     }
