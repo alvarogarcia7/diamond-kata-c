@@ -47,22 +47,21 @@ int number_of_rows(char *chars) {
     if(strlen(chars) == 1){
         return 1;
     }
-    int repeated = (strlen(chars)+1)/2;
-    return 1 + 2 * repeated;
+    return 1 + 2 * (strlen(chars) - 1);
 }
 
 int number_of_columns(char *chars){
     return number_of_rows(chars);
 }
 
-char **diamond(char *chars){
+char **diamond(char *chars) {
     char **result;
 
     result = calloc(number_of_rows(chars) + ROW_TERMINATOR, sizeof(char *));
-    if(strlen(chars) == 1) {
+    if (strlen(chars) == 1) {
         fill_pattern_A_(&result[0], chars[0], number_of_columns(chars));
         result[1] = NULL;
-    } else if(strlen(chars) == 2){
+    } else if (strlen(chars) == 2) {
         fill_pattern_A_(&result[0], chars[0], number_of_columns(chars));
 
         fill_pattern_B_B(&result[1], chars[1], number_of_columns(chars));
@@ -70,7 +69,7 @@ char **diamond(char *chars){
         fill_pattern_A_(&result[2], chars[0], number_of_columns(chars));
 
         result[3] = NULL;
-    } else if(strlen(chars) == 3){
+    } else if (strlen(chars) == 3) {
         fill_pattern_A_(&result[0], chars[0], number_of_columns(chars));
         fill_pattern_B_B_shifted(&result[1], chars[1], number_of_columns(chars), 1);
         fill_pattern_B_B(&result[2], chars[2], number_of_columns(chars));
@@ -78,6 +77,16 @@ char **diamond(char *chars){
         fill_pattern_A_(&result[4], chars[0], number_of_columns(chars));
 
         result[5] = NULL;
+    } else if (strlen(chars) == 4) {
+        fill_pattern_A_(&result[0], chars[0], number_of_columns(chars));
+        fill_pattern_B_B_shifted(&result[1], chars[1], number_of_columns(chars), 2);
+        fill_pattern_B_B_shifted(&result[2], chars[2], number_of_columns(chars), 1);
+        fill_pattern_B_B(&result[3], chars[3], number_of_columns(chars));
+        fill_pattern_B_B_shifted(&result[4], chars[2], number_of_columns(chars), 1);
+        fill_pattern_B_B_shifted(&result[5], chars[1], number_of_columns(chars), 2);
+        fill_pattern_A_(&result[6], chars[0], number_of_columns(chars));
+
+        result[7] = NULL;//"   A   "
     }
-return result;
+    return result;
 }
