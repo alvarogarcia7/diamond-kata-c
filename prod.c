@@ -13,6 +13,16 @@ void fill_pattern_A_(char **result_ptr, char c) {
     result[2] = ' ';
 }
 
+void fill_pattern_B_B(char **result_ptr, char c) {
+    *result_ptr = calloc(10, sizeof(char));
+
+    char *result = *result_ptr;
+
+    result[0] = c;
+    result[1] = ' ';
+    result[2] = c;
+}
+
 char **diamond(char *chars){
     char **result;
     result = calloc(1 + 1 + 1 + 1, sizeof(char *));
@@ -24,10 +34,7 @@ char **diamond(char *chars){
     } else if(strlen(chars) == 2){
         fill_pattern_A_(&result[0], chars[0]);
 
-        result[1] = calloc(10, sizeof(char));
-        result[1][0] = chars[1];
-        result[1][1] = ' ';
-        result[1][2] = chars[1];
+        fill_pattern_B_B(&result[1], chars[1]);
 
         fill_pattern_A_(&result[2], chars[0]);
 
