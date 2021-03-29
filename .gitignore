@@ -1,0 +1,12 @@
+a.out
+.vscode
+
+cmake-build-debug/
+
+.idea/
+
+
+## Test
+tests
+AllTests.c
+
