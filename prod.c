@@ -17,19 +17,6 @@ void fill_pattern_letter_in_the_middle(char **result_ptr, char c, int columns) {
     result[columns/2] = c;
 }
 
-void fill_pattern_B_B(char **result_ptr, char c, int columns) {
-    *result_ptr = calloc(columns, sizeof(char));
-
-    char *result = *result_ptr;
-
-    for (int i = 0; i < columns; ++i) {
-        result[i] = ' ';
-    }
-
-    result[0] = c;
-    result[columns-1] = c;
-}
-
 void fill_pattern_B_B_shifted(char **result_ptr, char c, int columns, int shift) {
     *result_ptr = calloc(columns, sizeof(char));
 
