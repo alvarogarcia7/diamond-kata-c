@@ -8,9 +8,22 @@
 
 static void single_letter(void **state)
 {
-    char *result = diamond("B");
+    char **result = diamond("B");
 
-    assert_string_equal("B", result);
+    assert_string_equal("B", result[0]);
+    assert_null(result[1]);
+
+    free(result);
+}
+
+static void two_letters(void **state)
+{
+    char **result = diamond("AB");
+
+    assert_string_equal(" A ", result[0]);
+    assert_string_equal("B B", result[1]);
+    assert_string_equal(" A ", result[2]);
+    assert_null(result[3]);
 
     free(result);
 }
@@ -25,6 +38,7 @@ int main(void) {
     const struct CMUnitTest tests[] = {
             cmocka_unit_test(canary_test)
             , cmocka_unit_test(single_letter)
+            , cmocka_unit_test(two_letters)
     };
     return cmocka_run_group_tests(tests, NULL, NULL);
 }
