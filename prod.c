@@ -29,10 +29,7 @@ char **diamond(char *chars){
         result[1][1] = ' ';
         result[1][2] = chars[1];
 
-        result[2] = calloc(10, sizeof(char));
-        result[2][0] = ' ';
-        result[2][1] = chars[0];
-        result[2][2] = ' ';
+        fill_pattern_A_(&result[2], chars[0]);
 
         result[3] = NULL;
     }
