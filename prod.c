@@ -30,6 +30,19 @@ void fill_pattern_B_B(char **result_ptr, char c, int columns) {
     result[columns-1] = c;
 }
 
+void fill_pattern_B_B_shifted(char **result_ptr, char c, int columns, int shift) {
+    *result_ptr = calloc(columns, sizeof(char));
+
+    char *result = *result_ptr;
+
+    for (int i = 0; i < columns; ++i) {
+        result[i] = ' ';
+    }
+
+    result[0+shift] = c;
+    result[columns-1-shift] = c;
+}
+
 int number_of_rows(char *chars) {
     if(strlen(chars) == 1){
         return 1;
@@ -59,40 +72,9 @@ char **diamond(char *chars){
         result[3] = NULL;
     } else if(strlen(chars) == 3){
         fill_pattern_A_(&result[0], chars[0], number_of_columns(chars));
-
-        {
-            int columns = number_of_columns(chars);
-            char **result_ptr=&result[1];
-            char c = chars[1];
-            *result_ptr = calloc(columns, sizeof(char));
-
-            char *result = *result_ptr;
-
-            for (int i = 0; i < columns; ++i) {
-                result[i] = ' ';
-            }
-
-            result[0+1] = c;
-            result[columns-1-1] = c;
-        }
-
+        fill_pattern_B_B_shifted(&result[1], chars[1], number_of_columns(chars), 1);
         fill_pattern_B_B(&result[2], chars[2], number_of_columns(chars));
-
-        {
-            int columns = number_of_columns(chars);
-            char **result_ptr=&result[3];
-            char c = chars[1];
-            *result_ptr = calloc(columns, sizeof(char));
-
-            char *result = *result_ptr;
-
-            for (int i = 0; i < columns; ++i) {
-                result[i] = ' ';
-            }
-
-            result[0+1] = c;
-            result[columns-1-1] = c;
-        }
+        fill_pattern_B_B_shifted(&result[3], chars[1], number_of_columns(chars), 1);
         fill_pattern_A_(&result[4], chars[0], number_of_columns(chars));
 
         result[5] = NULL;
