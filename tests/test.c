@@ -6,7 +6,7 @@
 
 #include "../prod.h"
 
-static void single_line(void **state)
+static void single_letter(void **state)
 {
     char *result = diamond("A");
 
@@ -24,7 +24,7 @@ static void canary_test(void **state) {
 int main(void) {
     const struct CMUnitTest tests[] = {
             cmocka_unit_test(canary_test)
-            , cmocka_unit_test(single_line)
+            , cmocka_unit_test(single_letter)
     };
     return cmocka_run_group_tests(tests, NULL, NULL);
 }
