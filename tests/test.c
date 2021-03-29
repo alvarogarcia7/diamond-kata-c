@@ -57,6 +57,23 @@ static void four_letters(void **state)
 
     free(result);
 }
+static void five_letters(void **state)
+{
+    char **result = diamond("ABCDE");
+
+    assert_string_equal("    A    ", result[0]);
+    assert_string_equal("   B B   ", result[1]);
+    assert_string_equal("  C   C  ", result[2]);
+    assert_string_equal(" D     D ", result[3]);
+    assert_string_equal("E       E", result[4]);
+    assert_string_equal(" D     D ", result[5]);
+    assert_string_equal("  C   C  ", result[6]);
+    assert_string_equal("   B B   ", result[7]);
+    assert_string_equal("    A    ", result[8]);
+    assert_null(result[9]);
+
+    free(result);
+}
 
 
 /* A test case that does nothing and succeeds. */
@@ -71,6 +88,7 @@ int main(void) {
             , cmocka_unit_test(two_letters)
             , cmocka_unit_test(three_letters)
             , cmocka_unit_test(four_letters)
+            , cmocka_unit_test(five_letters)
     };
     return cmocka_run_group_tests(tests, NULL, NULL);
 }
