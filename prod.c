@@ -89,16 +89,16 @@ char **diamond(char *chars) {
         result[7] = NULL;//"   A   "
     } else if (strlen(chars) == 5) {
         fill_pattern_A_(&result[0], chars[0], number_of_columns(chars));
-        for (int i = 1; i <= 3 ; ++i) {
+        for (int i = 1; i < strlen(chars) - 1; ++i) {
            int row = i;
            int char_index = i;
-           int shift = 4 - i;
+           int shift = strlen(chars) - 1 - i;
            fill_pattern_B_B_shifted(&result[row], chars[char_index], number_of_columns(chars), shift);
         }
-        fill_pattern_B_B(&result[4], chars[4], number_of_columns(chars));
-        for (int i = 1; i <= 3 ; ++i) {
-            int row = i + 4;
-            int char_index = 4 - i;
+        fill_pattern_B_B(&result[number_of_columns(chars)/2], chars[strlen(chars)-1], number_of_columns(chars));
+        for (int i = 1; i < strlen(chars) -1 ; ++i) {
+            int row = i + strlen(chars) - 1 ;
+            int char_index = strlen(chars) - 1 - i;
             int shift = i;
             fill_pattern_B_B_shifted(&result[row], chars[char_index], number_of_columns(chars), shift);
         }
