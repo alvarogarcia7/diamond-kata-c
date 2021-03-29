@@ -2,8 +2,19 @@
 #include <stddef.h>
 #include <setjmp.h>
 #include <cmocka.h>
+#include <stdlib.h>
 
 #include "../prod.h"
+
+static void single_line(void **state)
+{
+    char *result = diamond("A");
+
+    assert_string_equal("A", result);
+
+    free(result);
+}
+
 
 /* A test case that does nothing and succeeds. */
 static void canary_test(void **state) {
@@ -13,6 +24,7 @@ static void canary_test(void **state) {
 int main(void) {
     const struct CMUnitTest tests[] = {
             cmocka_unit_test(canary_test)
+            , cmocka_unit_test(single_line)
     };
     return cmocka_run_group_tests(tests, NULL, NULL);
 }
