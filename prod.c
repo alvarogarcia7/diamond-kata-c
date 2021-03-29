@@ -11,7 +11,7 @@ char **diamond(char *chars){
         result[0] = calloc(10, sizeof(char));
         result[0][0] = chars[0];
         result[1] = NULL;
-    } else {
+    } else if(strlen(chars) == 2){
         result[0] = calloc(10, sizeof(char));
         result[0][0] = ' ';
         result[0][1] = chars[0];
