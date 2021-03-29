@@ -37,7 +37,7 @@ static void three_letters(void **state)
     assert_string_equal("C   C", result[2]);
     assert_string_equal(" B B ", result[3]);
     assert_string_equal("  A  ", result[4]);
-    assert_null(result[3]);
+    assert_null(result[5]);
 
     free(result);
 }

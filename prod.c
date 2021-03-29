@@ -34,7 +34,7 @@ int number_of_rows(char *chars) {
     if(strlen(chars) == 1){
         return 1;
     }
-    int repeated = strlen(chars)/2;
+    int repeated = (strlen(chars)+1)/2;
     return 1 + 2 * repeated;
 }
 
@@ -57,6 +57,45 @@ char **diamond(char *chars){
         fill_pattern_A_(&result[2], chars[0], number_of_columns(chars));
 
         result[3] = NULL;
+    } else if(strlen(chars) == 3){
+        fill_pattern_A_(&result[0], chars[0], number_of_columns(chars));
+
+        {
+            int columns = number_of_columns(chars);
+            char **result_ptr=&result[1];
+            char c = chars[1];
+            *result_ptr = calloc(columns, sizeof(char));
+
+            char *result = *result_ptr;
+
+            for (int i = 0; i < columns; ++i) {
+                result[i] = ' ';
+            }
+
+            result[0+1] = c;
+            result[columns-1-1] = c;
+        }
+
+        fill_pattern_B_B(&result[2], chars[2], number_of_columns(chars));
+
+        {
+            int columns = number_of_columns(chars);
+            char **result_ptr=&result[3];
+            char c = chars[1];
+            *result_ptr = calloc(columns, sizeof(char));
+
+            char *result = *result_ptr;
+
+            for (int i = 0; i < columns; ++i) {
+                result[i] = ' ';
+            }
+
+            result[0+1] = c;
+            result[columns-1-1] = c;
+        }
+        fill_pattern_A_(&result[4], chars[0], number_of_columns(chars));
+
+        result[5] = NULL;
     }
-    return result;
+return result;
 }
