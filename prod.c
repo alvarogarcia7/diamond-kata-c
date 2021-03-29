@@ -23,9 +23,18 @@ void fill_pattern_B_B(char **result_ptr, char c) {
     result[2] = c;
 }
 
+int number_of_rows(char *chars) {
+    if(strlen(chars) == 1){
+        return 1;
+    }
+    int repeated = strlen(chars)/2;
+    return 1 + 2 * repeated;
+}
+
 char **diamond(char *chars){
     char **result;
-    result = calloc(1 + 1 + 1 + 1, sizeof(char *));
+
+    result = calloc(number_of_rows(chars) + 1, sizeof(char *));
     result[0] = calloc(10, sizeof(char));
     if(strlen(chars) == 1) {
         result[0] = calloc(10, sizeof(char));
