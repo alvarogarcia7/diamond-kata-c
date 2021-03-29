@@ -22,9 +22,12 @@ void fill_pattern_B_B(char **result_ptr, char c, int columns) {
 
     char *result = *result_ptr;
 
+    for (int i = 0; i < columns; ++i) {
+        result[i] = ' ';
+    }
+
     result[0] = c;
-    result[1] = ' ';
-    result[2] = c;
+    result[columns-1] = c;
 }
 
 int number_of_rows(char *chars) {
