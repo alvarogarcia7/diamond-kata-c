@@ -8,9 +8,9 @@
 
 static void single_letter(void **state)
 {
-    char *result = diamond("A");
+    char *result = diamond("B");
 
-    assert_string_equal("A", result);
+    assert_string_equal("B", result);
 
     free(result);
 }
