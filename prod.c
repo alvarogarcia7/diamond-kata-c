@@ -70,3 +70,16 @@ char **diamond(char *chars) {
     }
     return result;
 }
+
+void diamond_foreach(char **result, void (*function)(char *)) {
+    int i = 0;
+    while (result[i] != NULL) {
+        function(result[i]);
+        i++;
+    }
+}
+
+void diamond_free(char **result) {
+    diamond_foreach(result, (void (*)(char *)) &free);
+    free(result);
+}
