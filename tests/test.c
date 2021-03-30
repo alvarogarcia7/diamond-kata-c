@@ -8,7 +8,7 @@
 
 static void single_letter(void **state)
 {
-    char **result = diamond("B");
+    char **result = diamond_create("B");
 
     assert_string_equal("B", result[0]);
     assert_null(result[1]);
@@ -18,7 +18,7 @@ static void single_letter(void **state)
 
 static void two_letters(void **state)
 {
-    char **result = diamond("AB");
+    char **result = diamond_create("AB");
 
     assert_string_equal(" A ", result[0]);
     assert_string_equal("B B", result[1]);
@@ -30,7 +30,7 @@ static void two_letters(void **state)
 
 static void three_letters(void **state)
 {
-    char **result = diamond("ABC");
+    char **result = diamond_create("ABC");
 
     assert_string_equal("  A  ", result[0]);
     assert_string_equal(" B B ", result[1]);
@@ -44,7 +44,7 @@ static void three_letters(void **state)
 
 static void four_letters(void **state)
 {
-    char **result = diamond("ABCD");
+    char **result = diamond_create("ABCD");
 
     assert_string_equal("   A   ", result[0]);
     assert_string_equal("  B B  ", result[1]);
@@ -59,7 +59,7 @@ static void four_letters(void **state)
 }
 static void five_letters(void **state)
 {
-    char **result = diamond("ABCDE");
+    char **result = diamond_create("ABCDE");
 
     assert_string_equal("    A    ", result[0]);
     assert_string_equal("   B B   ", result[1]);

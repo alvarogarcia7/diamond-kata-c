@@ -18,7 +18,7 @@ int main(int argc, char** argv){
         return -1;
     }
     char *alphabet = argv[1];
-    char **result = diamond(alphabet);
+    char **result = diamond_create(alphabet);
     diamond_foreach(result, &print);
     diamond_free(result);
     return 0;

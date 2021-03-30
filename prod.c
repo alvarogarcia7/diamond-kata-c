@@ -41,7 +41,7 @@ int number_of_columns(char *chars){
     return number_of_rows(chars);
 }
 
-char **diamond(char *chars) {
+char **diamond_create(char *chars) {
     char **result;
 
     result = calloc(number_of_rows(chars) + ROW_TERMINATOR, sizeof(char *));
