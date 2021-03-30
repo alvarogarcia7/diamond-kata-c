@@ -12,7 +12,7 @@ Goals:
   
 ## Running it
 
-Build it:
+Install the dependencies:
 ```
 make install-dependencies
 ```
