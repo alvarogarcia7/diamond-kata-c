@@ -14,19 +14,18 @@ Goals:
 
 Build it:
 ```
-cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" . -B cmake-build 
-make -C cmake-build all
+make install-dependencies
 ```
 
 Unit tests:
 ```
-./cmake-build/tests/unit_tests
+make test
 ```
 
 Production code:
 
 ```
-./cmake-build/prod
+make run
 ```
 
 It will show the usage

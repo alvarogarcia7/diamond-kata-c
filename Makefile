@@ -14,4 +14,11 @@ install-dependencies:
 	$(MAKE) -Ccmake-build-debug all
 .PHONY: install-dependencies
 
+run:
+	cmake -Bcmake-build-debug .
+	$(MAKE) -Ccmake-build-debug all
+	@echo "Make prod code"
+	$(MAKE) -Ccmake-build-debug prod
+	./cmake-build-debug/prod ABCD
+.PHONY: run
 
