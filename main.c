@@ -17,17 +17,21 @@ int main(int argc, char** argv){
     char *alphabet = argv[1];
 
     char **result = diamond(alphabet);
-    int i = 0;
-    while(result[i] != NULL){
-        printf("%s\n", result[i]);
-        i++;
+    {
+        int i = 0;
+        while (result[i] != NULL) {
+            printf("%s\n", result[i]);
+            i++;
+        }
     }
 
-    i = 0;
-    while(result[i] != NULL){
-        free(result[i]);
-        i++;
+    {
+        int i = 0;
+        while (result[i] != NULL) {
+            free(result[i]);
+            i++;
+        }
+        free(result);
     }
-    free(result);
     return 0;
 }
