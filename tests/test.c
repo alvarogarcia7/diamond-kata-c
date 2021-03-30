@@ -12,8 +12,7 @@ static void single_letter(void **state)
 
     assert_string_equal("B", result[0]);
     assert_null(result[1]);
-
-    free(result);
+    diamond_free(result);
 }
 
 static void two_letters(void **state)
@@ -24,8 +23,7 @@ static void two_letters(void **state)
     assert_string_equal("B B", result[1]);
     assert_string_equal(" A ", result[2]);
     assert_null(result[3]);
-
-    free(result);
+    diamond_free(result);
 }
 
 static void three_letters(void **state)
@@ -38,8 +36,7 @@ static void three_letters(void **state)
     assert_string_equal(" B B ", result[3]);
     assert_string_equal("  A  ", result[4]);
     assert_null(result[5]);
-
-    free(result);
+    diamond_free(result);
 }
 
 static void four_letters(void **state)
@@ -54,8 +51,7 @@ static void four_letters(void **state)
     assert_string_equal("  B B  ", result[5]);
     assert_string_equal("   A   ", result[6]);
     assert_null(result[7]);
-
-    free(result);
+    diamond_free(result);
 }
 static void five_letters(void **state)
 {
@@ -71,8 +67,7 @@ static void five_letters(void **state)
     assert_string_equal("   B B   ", result[7]);
     assert_string_equal("    A    ", result[8]);
     assert_null(result[9]);
-
-    free(result);
+    diamond_free(result);
 }
 
 
